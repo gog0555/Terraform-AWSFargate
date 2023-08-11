@@ -8,3 +8,10 @@ module "network" {
   vpc_cidr = var.vpc_cidr
   subnets  = var.subnets
 }
+
+module "fargate" {
+  source = "../../modules/fargate"
+
+  env = var.env
+  name = var.name
+}
