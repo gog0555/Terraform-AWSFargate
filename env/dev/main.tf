@@ -12,14 +12,14 @@ module "network" {
 module "fargate" {
   source = "../../modules/fargate"
 
-  env = var.env
+  env  = var.env
   name = var.name
 
-  vpc_id = module.network.vpc_id
-  public_subnets  = module.network.public_subnets
+  vpc_id         = module.network.vpc_id
+  public_subnets = module.network.public_subnets
 
   capacity_provider = var.capacity_provider
-  ecs_task = var.ecs_task
-  desired_count = var.desired_count
-  fargate_weight = var.fargate_weight
+  ecs_task          = var.ecs_task
+  desired_count     = var.desired_count
+  fargate_weight    = var.fargate_weight
 }
