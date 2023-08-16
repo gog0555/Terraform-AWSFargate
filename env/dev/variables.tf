@@ -37,3 +37,31 @@ variable "subnets" {
     }
   }
 }
+
+variable "capacity_provider" {
+  type = string
+  default = "FARGATE"
+}
+
+variable "ecs_task" {
+  type = object({
+    network_mode = string
+    cpu    = number
+    memory = number
+  })
+  default = {
+    network_mode = "awsvpc"
+    cpu    = 256
+    memory = 512
+  }
+}
+
+variable "desired_count" {
+  type = number
+  default = 1
+}
+
+variable "fargate_weight" {
+  type = number
+  default = 1
+}
